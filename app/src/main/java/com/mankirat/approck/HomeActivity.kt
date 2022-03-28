@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import com.mankirat.approck.databinding.ActivityHomeBinding
+import com.mankirat.approck.lib.AdMobUtil
 
 class HomeActivity : AppCompatActivity() {
 
@@ -16,6 +17,19 @@ class HomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
+
+        AdMobUtil.adMobIds.interstitialId = Constants.AdMob.INTERSTITIAL
+        AdMobUtil.adMobIds.interstitialIdSplash = Constants.AdMob.INTERSTITIAL_SPLASH
+        AdMobUtil.adMobIds.bannerId = Constants.AdMob.BANNER
+        AdMobUtil.adMobIds.nativeId = Constants.AdMob.NATIVE
+        AdMobUtil.adMobIds.rewardId = Constants.AdMob.REWARD
+        AdMobUtil.adMobIds.appOpenId = Constants.AdMob.APP_OPEN
+
+        AdMobUtil.setUp(this)
+
+        binding.btnShowInterstitial.setOnClickListener {
+            AdMobUtil.showInterstitial(this)
+        }
 
     }
 
