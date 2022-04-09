@@ -1,10 +1,9 @@
 package com.mankirat.approck
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import androidx.appcompat.app.AppCompatActivity
 import com.mankirat.approck.databinding.ActivityHomeBinding
-import com.mankirat.approck.lib.AdMobUtil
 
 class HomeActivity : AppCompatActivity() {
 
@@ -18,19 +17,19 @@ class HomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-        AdMobUtil.adMobIds.interstitialId = Constants.AdMob.INTERSTITIAL
-        AdMobUtil.adMobIds.interstitialIdSplash = Constants.AdMob.INTERSTITIAL_SPLASH
-        AdMobUtil.adMobIds.bannerId = Constants.AdMob.BANNER
-        AdMobUtil.adMobIds.nativeId = Constants.AdMob.NATIVE
-        AdMobUtil.adMobIds.rewardId = Constants.AdMob.REWARD
-        AdMobUtil.adMobIds.appOpenId = Constants.AdMob.APP_OPEN
+//        binding.btnShowInterstitial.setOnClickListener {
+//            adMobInter()
+//        }
+//        binding.flBannerAd.adMobBanner()
+//        binding.flNativeAd.adMobNative()
+    }
 
-        AdMobUtil.setUp(this)
+    override fun onResume() {
+        super.onResume()
 
-        binding.btnShowInterstitial.setOnClickListener {
-            AdMobUtil.showInterstitial(this)
-        }
-
+        /* ApplicationGlobal.instance.inAppPurchase.isProductPurchased(this) {
+             log("aaaaaa:status=$it")
+         }*/
     }
 
 }
